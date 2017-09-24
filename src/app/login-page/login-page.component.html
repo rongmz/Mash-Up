@@ -1,3 +1,27 @@
-<p>
-  login-page works!
-</p>
+<md-card>
+  <div class="logo-icon">
+    <md-icon>cloud_upload</md-icon>
+  </div>
+
+  <div class="padding">
+    <form class="full-width full-height" #f="ngForm" (ngSubmit)="(f.valid? onSubmit(): false)">
+      <md-select placeholder="Select User" class="full-width padding-vert" required [(ngModel)]="loginUser" name="user">
+        <md-option *ngFor="let u of users" [value]="u.username">
+          {{ u.showName || u.username }}
+        </md-option>
+      </md-select>
+
+      <md-form-field class="full-width padding-vert">
+        <input mdInput placeholder="Password" type="password" required [(ngModel)]="loginPassword" name="password">
+        <md-error>
+          Password is <strong>required</strong>
+        </md-error>
+      </md-form-field>
+
+      <div style="text-align:right;">
+        <button md-raised-button color="primary">Login</button>
+      </div>
+    </form>
+  </div>
+
+</md-card>

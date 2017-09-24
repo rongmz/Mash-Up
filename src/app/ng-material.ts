@@ -12,7 +12,8 @@ import {
     // MdExpansionModule,
     MdProgressSpinnerModule,
     MdProgressBarModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdCardModule
 } 
 from '@angular/material';
 
@@ -30,7 +31,8 @@ from '@angular/material';
     //   MdExpansionModule,
       MdProgressSpinnerModule,
       MdProgressBarModule,
-      MdTooltipModule
+      MdTooltipModule,
+      MdCardModule
     ],
   exports: [
       MdButtonModule, 
@@ -45,7 +47,8 @@ from '@angular/material';
     //   MdExpansionModule,
       MdProgressSpinnerModule,
       MdProgressBarModule,
-      MdTooltipModule
+      MdTooltipModule,
+      MdCardModule
     ],
 })
 export class NgMaterialModule { }

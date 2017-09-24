@@ -1,4 +1,5 @@
-<md-progress-bar *ngIf="progressConfig.show" 
+<div class="bg" [ngClass]="backgroundTheme"></div>
+<md-progress-bar [ngClass]="{'visible':progressConfig.show, 'hidden':!progressConfig.show}" 
     [mode]="progressConfig.mode"
     [color]="progressConfig.color"
     [value]="progressConfig.value"
