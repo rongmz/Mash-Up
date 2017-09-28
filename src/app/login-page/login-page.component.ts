@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ProgressService } from '../services/progress.service';
 import { User } from '../models';
 
 @Component({
@@ -15,31 +14,37 @@ export class LoginPageComponent implements OnInit {
    * The users array
    */
   users: User[];
-  
-  // login username and credentials
-  loginUser:string;
-  loginPassword:string;
 
-  constructor(public progressService:ProgressService, public router:Router) {
+  isLoading: boolean = false;
+  
+  constructor(public router:Router) {
   }
 
   ngOnInit() {
    // load users array
-    this.users = [new User('u1', undefined, 'User 1'), new User('u2', undefined, 'User 2')];
+    this.users = [
+      new User('username1', undefined, 'Rounak'), 
+      new User('username2', undefined, 'Soma'),
+      new User('username3', undefined, 'Admin'),
+      new User('username4', undefined, 'User 4'),
+      new User('username5', undefined, 'Ron'),
+    ];
   }
+
 
   /**
    * Called when user clicks on login button
+   * @param user the user to login with.
    */
-  onSubmit() {
-    if(this.loginUser && this.loginPassword) {
+  doLogin(user:User) {
+    if(user.username && user.credential) {
       // show progressbar 
-      this.progressService.show({show:true, mode:'query'});
+      this.isLoading = true;
       // -->>login here
 
       // as of now going to another route. after some time
       setTimeout(() => {
-        this.progressService.show(false);
+        this.isLoading = false;
         this.router.navigate(['home']);
       }, 1500);
 

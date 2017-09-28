@@ -1,14 +1,73 @@
+// style inside card
 md-card {
     width: 33%;
     min-width: 370px;
     max-width: 370px;
-    margin: 5% auto 5%;
-    .logo-icon {
-        md-icon {
-            font-size: 4.8em;
+    min-height: 200px;
+    position: relative;
+    margin: 5% auto 0;
+    overflow: hidden;
+    .back-hide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        md-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
             width: 100%;
-            height: 100%;
+            margin: -15% 0 0 -50%;
         }
-        text-align: center;
+        [loading-msg] {
+            bottom: 30%;
+            position: absolute;
+            width: 100%;
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+    }
+    [md-subheader] {
+        font-size: 1.6em;
+        color: #000;
+    }
+    .mat-expansion-panel.mat-expanded {
+        box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    }
+    [has-avatar] {
+        [text] {
+            margin: 0 5px 0 15px;
+            width: 100%;
+            line-height: 35px;
+            font-size: 1.1em;
+            font-weight: 400;
+        }
+        [avatar] {
+            flex-shrink: 0;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            font-style: normal;
+            line-height: 35px;
+            font-size: 21px;
+            font-weight: 400;
+        }
+    }
+}
+
+// footer style
+[footer] {
+    position: relative;
+    width: 33%;
+    min-width: 370px;
+    max-width: 370px;
+    padding: 0 24px;
+    margin: 20px auto;
+    fa[name="heart"] {
+        color: #FE5B77;
     }
 }

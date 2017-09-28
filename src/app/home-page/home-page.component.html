@@ -1,3 +1,33 @@
-<p>
-  home-page works!
-</p>
+<md-sidenav-container class="container">
+
+  <!-- this is side nav. This contains the list of items to jump to -->
+  <md-sidenav mode="side" opened="true">
+    <md-list>
+
+      <md-list-item class="account-details">
+        <md-icon mdListIcon class="side-icon" [mdTooltip]="user.showName +' ('+ user.username +')'">account_circle</md-icon>
+        <h3 mdLine>
+          {{user.showName}}
+          <button md-icon-button mdTooltip="Log Out"><md-icon>exit_to_app</md-icon></button>
+        </h3>
+        <p mdLine>{{user.username}}</p>
+      </md-list-item>
+
+      <md-divider></md-divider>
+
+      <!-- different shared location -->
+      <md-list-item routerLink="drive" routerLinkActive="active">
+        <md-icon md-list-icon>archive</md-icon>
+        <h4 md-line>Google Drive</h4>
+      </md-list-item>
+
+
+
+    </md-list>
+  </md-sidenav>
+
+  <div class="my-content">
+    <router-outlet></router-outlet>
+  </div>
+
+</md-sidenav-container>

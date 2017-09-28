@@ -7,82 +7,98 @@ $material-design-icons-font-path: "~material-design-icons-iconfont/dist/fonts/";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 // background themes
 @import './app/bg-themes';
+// import bg color categories
+@import './my-colors';
 // clear out html and body
 html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto Regular', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-    font-weight: 400;
+    background: #F7F7F7;
+    color: rgba(0, 0, 0, .87);
+    direction: ltr;
+    font-family: 'Roboto', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
 }
 
-.bg {
-    display: block;
-    min-width: 402px;
+.visible, [visible] {
+    visibility: visible;
+}
+
+.hidden, [hidden] {
+    visibility: hidden;
+}
+
+.full-width, [full-width] {
     width: 100%;
-    height: 100%;
-    position: fixed;
 }
 
-.visible { visibility: visible; }
-.hidden { visibility: hidden; }
-
-.full-width {
-    width: 100%;
-}
-
-.full-height {
+.full-height, [full-height] {
     height: 100%;
 }
 
-.pull-right {
+.pull-right, [pull-right] {
     float: right;
 }
 
-.pull-left {
+.pull-left, [pull-left] {
     float: left;
 }
 
-.text-center {
+.text-center, [text-center] {
     text-align: center;
 }
 
-.text-justify {
+.text-justify, [text-justify] {
     text-align: justify;
 }
 
-.text-left {
+.text-left, [text-left] {
     text-align: left;
 }
 
-.text-right {
+.text-right, [text-right] {
     text-align: right;
 }
 
-.padding {
+.padding, [padding] {
     padding: 1em;
 }
 
-.padding-horiz {
+.padding-horiz, [padding-horiz] {
     padding-left: 1em;
     padding-right: 1em;
 }
 
-.padding-vert {
+.padding-vert, [padding-vert] {
     padding-top: 1em;
     padding-bottom: 1em;
 }
 
-.margin {
+.margin, [margin] {
     margin: 1em;
 }
 
-.margin-horiz {
+.margin-horiz [margin-horiz] {
     margin-left: 1em;
     margin-right: 1em;
 }
 
-.margin-vert {
+.margin-vert, [margin-vert] {
     margin-top: 1em;
     margin-bottom: 1em;
+}
+
+// put list avater non image as text
+md-list-item {
+    i[mdlistavatar] {
+        color: #fff;
+        text-align: center;
+        font-style: normal;
+        line-height: 40px;
+        font-size: 24px;
+        font-weight: 400;
+    }
 }

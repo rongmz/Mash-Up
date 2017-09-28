@@ -1,27 +1,41 @@
-<md-card>
-  <div class="logo-icon">
-    <md-icon>cloud_upload</md-icon>
+<div class="container">
+  <app-background></app-background>
+
+  <md-card>
+    <div class="padding">
+
+      <h3 md-subheader>Choose an account</h3>
+
+      <md-accordion>
+        <md-expansion-panel *ngFor="let u of users; let $index=index" class="mat-elevation-z" hideToggle="true">
+          <md-expansion-panel-header has-avatar collapsedHeight="64px" expandedHeight="64px">
+            <i avatar [ngClass]="'bg-color-'+ ($index+1)%21">{{(u.showName||u.username).toUpperCase()[0]}}</i>
+            <div text>{{u.showName||u.username}}</div>
+          </md-expansion-panel-header>
+          <md-form-field>
+            <input mdInput placeholder="Password" type="password" required [(ngModel)]="u.credential" name="password">
+            <md-error>Password is <strong>required</strong></md-error>
+          </md-form-field>
+          <md-action-row>
+            <button md-raised-button color="primary" (click)="doLogin(u)">Login</button>
+          </md-action-row>
+        </md-expansion-panel>
+      </md-accordion>
+
+    </div>
+
+    <div class="back-hide" *ngIf="isLoading">
+      <md-spinner strokeWidth="4"></md-spinner>
+      <div loading-msg text-center>Please wait...</div>
+    </div>
+
+  </md-card>
+
+  <div footer text-center>
+    Made with <fa name="heart"></fa> by Rounak
+    <div style="margin-top:10px;">
+      <a md-button color="dark" href="https://github.com/rongmz/" target="blank"><fa name="github"></fa> Github</a>
+    </div>
   </div>
 
-  <div class="padding">
-    <form class="full-width full-height" #f="ngForm" (ngSubmit)="(f.valid? onSubmit(): false)">
-      <md-select placeholder="Select User" class="full-width padding-vert" required [(ngModel)]="loginUser" name="user">
-        <md-option *ngFor="let u of users" [value]="u.username">
-          {{ u.showName || u.username }}
-        </md-option>
-      </md-select>
-
-      <md-form-field class="full-width padding-vert">
-        <input mdInput placeholder="Password" type="password" required [(ngModel)]="loginPassword" name="password">
-        <md-error>
-          Password is <strong>required</strong>
-        </md-error>
-      </md-form-field>
-
-      <div style="text-align:right;">
-        <button md-raised-button color="primary">Login</button>
-      </div>
-    </form>
-  </div>
-
-</md-card>
+</div>

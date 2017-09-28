@@ -1,0 +1,29 @@
+.container {
+    position: absolute;
+    width: 80%;
+    height: calc(100% - 54px - 7px);
+    margin: 0% 10%;
+    margin-top: 15px;
+    * {
+        user-select: none;
+        -moz-user-select: -moz-none;
+        -webkit-user-select: none;
+    }
+    .account-details {
+        color: rgba(0, 0, 0, 0.54);
+        cursor: pointer;
+        md-icon.side-icon {
+            width: inherit;
+            height: 46px;
+            font-size: 46px;
+            padding: 0;
+        }
+        h3 {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        p {
+            font-size: 0.8em;
+        }
+    }
+}
