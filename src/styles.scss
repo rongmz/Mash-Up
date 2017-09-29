@@ -9,6 +9,20 @@ $material-design-icons-font-path: "~material-design-icons-iconfont/dist/fonts/";
 @import './app/bg-themes';
 // import bg color categories
 @import './my-colors';
+
+// scroll bar
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background: #D1D1D1;
+}
+::-webkit-scrollbar-thumb {
+    background: #6E6E6E;
+}
+::-webkit-scrollbar-corner {
+    background: #B3B3B3;
+}
+
 // clear out html and body
 html,
 body {
