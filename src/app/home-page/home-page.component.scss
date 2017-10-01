@@ -1,29 +1,120 @@
-.container {
+[toolbar-spacer] {
+    flex: 1 1 auto;
+}
+
+[toolbar-wide-middle] {
+    flex: 1 1 auto;
+    margin: 0 15px;
+    [mdPrefix] {
+        margin-right: 0.6em;
+    }
+    [mdSuffix] {
+        margin-left: 0.6em;
+    }
+}
+
+[toolbar-folder-name] {
+    max-width: 30%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+}
+
+[text-avatar] {
+    color: #fff;
+    text-align: center;
+    font-style: normal;
+    line-height: 35px;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+[menu-item-separated] {
+    border-top: 1px solid #bdbdbd;
+}
+
+[nav-panel] {
+    [right-scroller] {
+        display: inline-flex;
+        right: 0;
+        margin: 0 10px 0 0;
+        position: absolute;
+    }
+    [md-raised-button] {
+        min-width: 0;
+        max-width: 20em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    [nav-panel-arrow] {
+        height: 100%;
+        line-height: 36px;
+        vertical-align: middle;
+    }
+}
+
+[has-toolbar] {
+    top: 64px !important;
+}
+
+[absolute-container] {
     position: absolute;
-    width: 80%;
-    height: calc(100% - 54px - 7px);
-    margin: 0% 10%;
-    margin-top: 15px;
-    * {
-        user-select: none;
-        -moz-user-select: -moz-none;
-        -webkit-user-select: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    md-sidenav-container {
+        height: 100%;
+        width: 100%;
+        md-sidenav {
+            overflow-y: auto;
+            width: 200px;
+            min-width: 200px;
+            max-width: 300px;
+            [new-btn-holder] {
+                text-align: center;
+                padding: 10px 0 20px;
+                [new-btn] {
+                    min-width: 100px;
+                }
+            }
+            [list-icon] {
+                font-size: 2em;
+                width: 45px;
+            }
+            [list-img] {
+                height: 25px;
+                width: auto;
+                margin-right: 10px;
+            }
+            [nav-footer] {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #d8d8d8;
+                background-color: #fafafa;
+                font-size: 0.8em;
+                fa[name="heart"] {
+                    color: #FE5B77;
+                }
+            }
+            * {
+                user-select: none;
+            }
+        }
+        [sidenav-content] {
+            overflow-y: auto;
+        }
     }
-    .account-details {
-        color: rgba(0, 0, 0, 0.54);
-        cursor: pointer;
-        md-icon.side-icon {
-            width: inherit;
-            height: 46px;
-            font-size: 46px;
-            padding: 0;
-        }
-        h3 {
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-        p {
-            font-size: 0.8em;
-        }
-    }
+}
+
+[disabled="true"] {
+    opacity: 0.6;
+}
+
+.progressbar-hide {
+    opacity: 0;
 }

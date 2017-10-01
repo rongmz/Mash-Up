@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProgressService } from "./progress.service";
+import { ActiveViewService } from './active-view.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { ProgressService } from "./progress.service";
 
   ],
   providers: [
-    ProgressService
+    ProgressService,
+    ActiveViewService
   ]
 })
 export class ServicesModule { }

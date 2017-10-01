@@ -10,18 +10,29 @@ import { environment } from '../environments/environment';
 
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
-import { LoginRouteGuard } from './login-page/login-route-guard';
-import { HomeModule } from "./home-page/home.module";
+import { LoginRouteGuard } from './login-page/login-route.guard';
 
 import { APP_ROUTES } from './routes';
 import { ServicesModule } from './services';
 import { BackgroundComponent } from './features/background/background.component';
+
+import { HomePageComponent } from './home-page/home-page.component';
+import { HomeRouteGuard } from "./home-page/home-route.guard";
+import { LandingComponent } from './features/landing/landing.component';
+import { DriveComponent } from './features/drive/drive.component';
+import { AddUserComponent } from './features/add-user/add-user.component';
+import { RemoveUserComponent } from './features/remove-user/remove-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     BackgroundComponent,
+    HomePageComponent,
+    LandingComponent,
+    DriveComponent,
+    AddUserComponent,
+    RemoveUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,12 +41,12 @@ import { BackgroundComponent } from './features/background/background.component'
     NgMaterialModule, 
     Angular2FontawesomeModule,
     ServicesModule,
-    HomeModule,
 
     RouterModule.forRoot(APP_ROUTES, { enableTracing: !environment.production }),
   ],
   providers: [
     LoginRouteGuard,
+    HomeRouteGuard
   ],
   bootstrap: [AppComponent]
 })

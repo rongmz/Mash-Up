@@ -1,33 +1,76 @@
-<md-sidenav-container class="container">
+<md-toolbar color="primary">
+  <a toolbar-folder-name routerLink="/">{{currentFolderName}}</a>
+  <!-- <md-form-field toolbar-wide-middle floatPlaceholder="never" > -->
+  <!-- <span mdPrefix><i fa name="search"></i></span> -->
+  <!-- <input type="text" mdInput placeholder="Search"> -->
+  <!-- <fa mdSuffix name="caret-down"></fa> -->
+  <!-- </md-form-field> -->
+  <span toolbar-spacer></span>
+  <button type="button" md-icon-button class="bg-color-19" [mdMenuTriggerFor]="profileMenu" [mdTooltip]="user.showName">
+    <i text-avatar>{{(user.showName||user.username).toUpperCase()[0]}}</i>
+  </button>
 
-  <!-- this is side nav. This contains the list of items to jump to -->
-  <md-sidenav mode="side" opened="true">
-    <md-list>
+  <!-- menu -->
+  <md-menu #profileMenu="mdMenu">
+    <button md-menu-item mdTooltip="Add an user" mdTooltipPosition="left" routerLink="/u/add">Add User</button>
+    <button md-menu-item mdTooltip="Remove user" mdTooltipPosition="left" routerLink="/u/remove">Remove User</button>
+    <button md-menu-item menu-item-separated mdTooltip="Log out from the app" mdTooltipPosition="left" (click)="doLogout()">Log Out</button>
+  </md-menu>
+</md-toolbar>
 
-      <md-list-item class="account-details">
-        <md-icon mdListIcon class="side-icon" [mdTooltip]="user.showName +' ('+ user.username +')'">account_circle</md-icon>
-        <h3 mdLine>
-          {{user.showName}}
-          <button md-icon-button mdTooltip="Log Out"><md-icon>exit_to_app</md-icon></button>
-        </h3>
-        <p mdLine>{{user.username}}</p>
-      </md-list-item>
-
-      <md-divider></md-divider>
-
-      <!-- different shared location -->
-      <md-list-item routerLink="drive" routerLinkActive="active">
-        <md-icon md-list-icon>archive</md-icon>
-        <h4 md-line>Google Drive</h4>
-      </md-list-item>
-
-
-
-    </md-list>
-  </md-sidenav>
-
-  <div class="my-content">
-    <router-outlet></router-outlet>
+<!-- The navigation panel   -->
+<!-- <md-toolbar nav-panel>
+  <div right-scroller>
+    <div *ngFor="let folder of folderStack">
+      <button type="button" md-raised-button>{{folder.name}}</button>
+      <md-icon nav-panel-arrow *ngIf="folderStack.length > 1 && folderStack.indexOf(folder)!=folderStack.length-1">navigate_next</md-icon>
+    </div>
   </div>
+</md-toolbar> -->
 
-</md-sidenav-container>
+<!-- the sidenav -->
+<div absolute-container has-toolbar>
+
+  <md-sidenav-container>
+    <md-sidenav mode="side" opened="true">
+      <md-nav-list>
+        <!-- new button item -->
+        <div new-btn-holder>
+          <button md-raised-button color="primary" new-btn [mdMenuTriggerFor]="newMenu" mdTooltip="Create new folder / Upload file">New</button>
+          <!-- new menu -->
+          <md-menu #newMenu="mdMenu" [overlapTrigger]="false">
+            <button md-menu-item mdTooltip="Create new folder" mdTooltipPosition="right">
+              <md-icon>create_new_folder</md-icon> Folder</button>
+            <button md-menu-item mdTooltip="Upload a file" mdTooltipPosition="right">
+              <md-icon>file_upload</md-icon> Upload File</button>
+          </md-menu>
+        </div>
+        <md-divider></md-divider>
+
+        <!-- shared locations -->
+        <md-list-item mdTooltip="Browse Google Drive" mdTooltipPosition="right" routerLink="/drive">
+          <!-- <fa name="hdd-o" list-icon></fa> --> 
+          <img src="assets/drive.svg" list-img alt="Google Drive"> Google Drive</md-list-item>
+        <md-list-item mdTooltip="Browse Dropbox" mdTooltipPosition="right" disabled="true">
+          <!-- <fa name="dropbox" list-icon></fa> -->
+          <img src="assets/dropbox.svg" list-img alt="Drop Box"> Dropbox</md-list-item>
+
+      </md-nav-list>
+      <!-- fixed footer -->
+      <div nav-footer padding text-center>
+        Version {{appVersion}}<br>Made with <fa name="heart"></fa> by Rounak
+      </div>
+    </md-sidenav>
+
+    <div sidenav-content>
+      <router-outlet></router-outlet>
+    </div>
+
+  </md-sidenav-container>
+
+</div>
+
+<!-- progress bar -->
+<md-progress-bar [mode]="progressConfig.mode" 
+  color="warn" [value]="progressConfig.value" [bufferValue]="progressConfig.bufferValue"
+  [ngClass]="{'progressbar-hide':!progressConfig.show}"></md-progress-bar>
