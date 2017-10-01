@@ -8,8 +8,7 @@ import { LoginRouteGuard } from './login-page/login-route.guard';
 import { LandingComponent } from "./features/landing/landing.component";
 import { DriveComponent } from "./features/drive/drive.component";
 
-import { AddUserComponent } from "./features/add-user/add-user.component";
-import { RemoveUserComponent } from "./features/remove-user/remove-user.component";
+import { SettingsComponent } from './features/settings/settings.component';
 
 /**
  * Application routes.
@@ -22,9 +21,8 @@ export const APP_ROUTES: Routes = [
   {
     path: '', canActivate: [HomeRouteGuard], component: HomePageComponent,
     children: [
-      // user functionality
-      { path: 'u/add', component: AddUserComponent },
-      { path: 'u/remove', component: RemoveUserComponent },
+      // settings
+      { path: 'settings', component: SettingsComponent },
 
       // shared level locations
       { path: 'drive', component: DriveComponent }, // drive home

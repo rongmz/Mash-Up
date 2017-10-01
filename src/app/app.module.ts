@@ -20,8 +20,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { HomeRouteGuard } from "./home-page/home-route.guard";
 import { LandingComponent } from './features/landing/landing.component';
 import { DriveComponent } from './features/drive/drive.component';
-import { AddUserComponent } from './features/add-user/add-user.component';
-import { RemoveUserComponent } from './features/remove-user/remove-user.component';
+import { SettingsComponent } from './features/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +30,7 @@ import { RemoveUserComponent } from './features/remove-user/remove-user.componen
     HomePageComponent,
     LandingComponent,
     DriveComponent,
-    AddUserComponent,
-    RemoveUserComponent,
+    SettingsComponent,
   ],
   imports: [
     BrowserModule,
