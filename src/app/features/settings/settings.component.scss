@@ -1,0 +1,32 @@
+[settings-tab-group] {
+    user-select: none;
+    [padding] {
+        padding: 20px;
+    }
+    [avatar] {
+        flex-shrink: 0;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        color: #fff;
+        text-align: center;
+        font-style: normal;
+        line-height: 35px;
+        font-size: 21px;
+        font-weight: 400;
+    }
+    [username-line] {
+        font-weight: bold;
+    }
+    md-list-option {
+        [avatar] {
+            position: absolute;
+        }
+        *:not([avatar-text]) {
+            margin: 0;
+        }
+        [avatar-text] {
+            margin-left: 59px;
+        }
+    }
+}

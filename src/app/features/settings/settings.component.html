@@ -1,3 +1,37 @@
-<p>
-  settings works!
-</p>
+<md-tab-group settings-tab-group padding>
+  <md-tab label="Users">
+    <div padding>
+
+      <div md-subheader>
+        <button md-raised-button color="primary" mdTooltip="Add a new user" 
+          (click)="deleteEnabled=false;addUser()">Add User</button>
+        <button md-raised-button *ngIf="!deleteEnabled" color="warn" mdTooltip="Select and delete multiple users" margin-left (click)="deleteEnabled = true">Delete Users</button>
+        <button md-raised-button *ngIf="deleteEnabled" color="warn" mdTooltip="Delete selected users" margin-left (click)="userSelectionList.selectedOptions.selected.length>0?deleteSelectedUsers(userSelectionList.selectedOptions.selected):false">
+          Delete Selected</button>
+        <button md-raised-button *ngIf="deleteEnabled" color="warn" mdTooltip="Cancel deletion" margin-left (click)="deleteEnabled = false">Cancel</button>
+      </div>
+
+
+      <!-- view only list -->
+      <md-list *ngIf="!deleteEnabled">
+        <md-list-item *ngFor="let u of users; let $index=index;">
+          <i avatar [ngClass]="'bg-color-'+ ($index+1)%21" md-list-icon>{{(u.showName||u.username).toUpperCase()[0]}}</i>
+          <h4 md-line username-line>{{ u.showName||u.username }}</h4>
+          <p md-line>Added: {{ u.dateJoined | date:'mediumDate' }}</p>
+        </md-list-item>
+      </md-list>
+
+      <!-- delete selection list -->
+      <md-selection-list #userSelectionList *ngIf="deleteEnabled">
+        <md-list-option *ngFor="let u of users; let $index=index;" [value]="u" [disabled]="u.username==currentUser.username">
+          <i avatar [ngClass]="'bg-color-'+ ($index+1)%21" md-list-icon>{{(u.showName||u.username).toUpperCase()[0]}}</i>
+          <div avatar-text>
+            <h4 md-line username-line>{{ u.showName||u.username }}</h4>
+            <p md-line>Added: {{ u.dateJoined | date:'mediumDate' }}</p>
+          </div>
+        </md-list-option>
+      </md-selection-list>
+
+    </div>
+  </md-tab>
+</md-tab-group>
